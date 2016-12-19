@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mybatis.scripting.beetl.use">
+
+    <sql id="columns">firstName
+@if(_parameter.includeLastName){
+, lastName
+@}
+</sql>
+
+    <sql id="nested">
+        'SOME NOISE',
+        <include refid="columns"/>
+    </sql>
+
+    <select id="selectNames" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT
+        <include refid="nested"/>
+        FROM names
+        WHERE lastName LIKE #_parameter.name#
+    </select>
+
+    <select id="selectNamesWithExpressions" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT
+        <include refid="columns"/>
+        FROM names
+        WHERE lastName LIKE #_parameter.name+'%'#
+    </select>
+
+    <select id="selectNamesWithFormattedParam" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT
+        <include refid="columns"/>
+        FROM names
+        WHERE lastName LIKE #text(@org.mybatis.scripting.beetl.use.TrailingWildCardFormatter.formatLiteral(_parameter.name))#
+    </select>
+
+    <select id="selectNamesWithFormattedParamSafe" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT
+        <include refid="columns"/>
+        FROM names
+        WHERE lastName LIKE #@org.mybatis.scripting.beetl.use.TrailingWildCardFormatter.format(_parameter.name)#
+    </select>
+
+    <select id="selectNamesWithIteration" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT *
+        FROM names
+        @if(isNotEmpty(_parameter.ids)){
+        where id in (#join(_parameter.ids)#)
+        @}
+    </select>
+
+    <select id="selectWithTrim" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT *
+        FROM names
+        @trim({prefix:"WHERE", prefixOverrides:"", suffix:"", suffixOverrides:"FOOFOO"}){
+          1=1
+        @}
+    </select>
+
+    <select id="selectNamesWithIterationOverMap" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT *
+        FROM names
+        @where(){
+          id in ( #join(@_parameter.get("ids").keySet())# )
+        @}
+    </select>
+
+    <select id="selectNamesWithIterationComplex" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT *
+        FROM names
+        @where(){
+          id in (
+          @trim(){
+           @for(name in _parameter.names){
+            #name.id#,
+           @}
+          @}
+          )
+         @}
+    </select>
+
+    <select id="selectWithCustomUserDirective" resultType="org.mybatis.scripting.beetl.use.Name">
+        @genSql(){}
+    </select>
+
+    <select id="selectNamesWithInDirective" resultType="org.mybatis.scripting.beetl.use.Name">
+        SELECT *
+        FROM names
+        <![CDATA[
+        @where(){
+
+        @if(_parameter.names.~size > 1000){
+
+          id in (
+
+          @for(name in _parameter.names){
+
+              #name.id#
+              @if( (nameLP.index) % 1000 == 0 && !nameLP.first){
+              ) or id in (
+              @}else if(!nameLP.last){
+                ,
+              @}
+
+          @}
+
+          )
+
+        @}else{
+        id in (
+          @trim(){
+           @for(name in _parameter.names){
+            #name.id#,
+           @}
+          @}
+          )
+        @}
+
+
+         @}
+        ]]>
+    </select>
+
+    <insert id="insertName" parameterType="org.mybatis.scripting.beetl.use.Name">
+        <selectKey keyProperty="id" resultType="int">
+            CALL IDENTITY()
+        </selectKey>
+        INSERT INTO names(firstName, lastName)
+        VALUES (#_parameter.firstName#, #_parameter.lastName#)
+    </insert>
+
+
+
+</mapper>
