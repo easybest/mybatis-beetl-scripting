@@ -12,7 +12,7 @@
 
     <groupId>com.ifrabbit</groupId>
     <artifactId>mybatis-beetl-scripting</artifactId>
-    <version>1.0.BUILD-SNAPSHOT</version>
+    <version>1.0.1.RELEASE</version>
     <packaging>jar</packaging>
     <name>MyBatis Beetl Scripting</name>
     <description>Beetl support for MyBatis.</description>
