@@ -11,7 +11,7 @@
 
     <groupId>com.ifrabbit</groupId>
     <artifactId>mybatis-beetl-scripting</artifactId>
-    <version>1.0.1.RELEASE</version>
+    <version>1.0.2.BUILD-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>MyBatis Beetl Scripting</name>
     <description>Beetl support for MyBatis.</description>
@@ -35,7 +35,7 @@
         <url>https://github.com/hatunet/mybatis-beetl-scripting.git</url>
         <connection>scm:git:git://github.com/hatunet/mybatis-beetl-scripting.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hatunet/mybatis-beetl-scripting.git</developerConnection>
-      <tag>1.0.1.RELEASE</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
