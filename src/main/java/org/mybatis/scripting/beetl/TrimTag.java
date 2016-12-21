@@ -197,7 +197,7 @@ public class TrimTag extends Tag {
      */
     protected void appendSql(StringBuilder sb, String sql) {
         if (StringKit.isNotBlank(sql)) {
-            sb.append(SPACE).append(sql).append(SPACE);
+            sb.append(SPACE).append(sql);//.append(SPACE);
         }
     }
 

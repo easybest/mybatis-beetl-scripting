@@ -28,8 +28,6 @@ public class StringKit {
 
     public static final String[] EMPTY_STRING_ARRAY = new String[0];
 
-    // 首字母转小写
-
 
     public static String toLowerCaseFirstOne(String s) {
         if (Character.isLowerCase(s.charAt(0)))
@@ -40,8 +38,6 @@ public class StringKit {
                     .append(s.substring(1)).toString();
     }
 
-    // 首字母转大写
-
 
     public static String toUpperCaseFirstOne(String s) {
         if (Character.isUpperCase(s.charAt(0)))
@@ -51,8 +47,6 @@ public class StringKit {
                     .append(Character.toUpperCase(s.charAt(0)))
                     .append(s.substring(1)).toString();
     }
-
-    // 大写字母前面加上下划线并转为全小写
 
 
     public static String enCodeUnderlined(String s) {
@@ -66,8 +60,6 @@ public class StringKit {
         }
         return temp.toString();
     }
-
-    // 删除下划线并转把后一个字母转成大写
 
 
     public static String deCodeUnderlined(String str) {
@@ -87,13 +79,6 @@ public class StringKit {
         return sb.toString();
     }
 
-
-    /**
-     * 去空格
-     *
-     * @param str
-     * @return
-     */
     public static String trimAllWhitespace(String str) {
         if (!((CharSequence) str != null && ((CharSequence) str).length() > 0)) {
             return str;
@@ -186,14 +171,6 @@ public class StringKit {
             }
         }
         return true;
-    }
-
-
-    public static void main(String[] args) {
-//		System.out.println(deCodeUnderlined("USER_NAME"));
-
-
-        System.out.println(trimAllWhitespace(" fsdfsd sdfds fsd "));
     }
 
 

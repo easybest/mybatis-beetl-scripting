@@ -19,8 +19,6 @@
 package org.mybatis.scripting.beetl;
 
 import org.beetl.core.Tag;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -28,7 +26,6 @@ import java.io.IOException;
  * @author Jarvis Song
  */
 public class WhereTag extends Tag {
-    private transient static final Logger logger = LoggerFactory.getLogger(WhereTag.class);
 
     @Override
     public void render() {
@@ -40,7 +37,7 @@ public class WhereTag extends Tag {
             try {
                 ctx.byteWriter.writeString(" where " + body);
             } catch (IOException e) {
-                logger.error(e.getMessage(), e);
+                e.printStackTrace();
             }
         }
 
