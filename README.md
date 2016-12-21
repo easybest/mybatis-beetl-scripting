@@ -54,7 +54,7 @@ Example:
 <select id="findPerson" lang="beetl">
   SELECT *
   FROM person
-  WHERE name LIKE @{pattern, jdbcType=VARCHAR}
+  WHERE name LIKE #_parameter.name#
 </select>
 ```
 
