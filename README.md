@@ -15,9 +15,12 @@ If you are not familiar with beetl, you can learn it from its documentation site
 1. Put the mybatis-beetl-scripting-<version>.jar in your classpath.
 
     If you are using maven, just add a dependency to:
-```
-GroupId: com.ifrabbit
-ArtifactId: mybatis-beetl-scripting
+```xml
+<dependency>
+    <groupId>com.ifrabbit</groupId>
+    <artifactId>mybatis-beetl-scripting</artifactId>
+    <version>1.0.2.RELEASE</version>
+</dependency>
 ```
 
 2. Register the language driver alias in your mybatis configuration file:
