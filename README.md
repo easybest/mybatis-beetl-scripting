@@ -1,5 +1,6 @@
 # MyBatis Beetl Support  [![Build Status](https://travis-ci.org/hatunet/mybatis-beetl-scripting.svg?branch=master)](https://travis-ci.org/hatunet/mybatis-beetl-scripting) 
 
+![mybatis-velocity](http://mybatis.github.io/images/mybatis-logo.png)
 
 ## Introduction 
 
@@ -63,7 +64,7 @@ Example:
 
 
 
-## Contributing to Spring Data MyBatis
+## Contributing to MyBatis Beetl Scripting
 
 Here are some ways for you to get involved in the community:
 
