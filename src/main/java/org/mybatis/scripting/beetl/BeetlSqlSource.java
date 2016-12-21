@@ -40,16 +40,13 @@ public class BeetlSqlSource implements SqlSource {
     private final String        script;
     private final Class<?>      parameterType;
 
-    /**
-     * constructor.
-     */
+
     public BeetlSqlSource(Configuration configuration, String script, Class<?> parameterType) {
         this.configuration = configuration;
         this.script = script;
         this.parameterType = parameterType;
     }
 
-    @Override
     public BoundSql getBoundSql(Object parameterObject) {
 
         List<ParameterMapping> parameterMappings = new ArrayList<ParameterMapping>();

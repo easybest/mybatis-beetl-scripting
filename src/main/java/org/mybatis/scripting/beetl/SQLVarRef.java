@@ -3,10 +3,7 @@ package org.mybatis.scripting.beetl;
 import org.beetl.core.Context;
 import org.beetl.core.statement.VarRef;
 
-/**
- * @author jarvis@ifrabbit.com
- * @date 16/3/16
- */
+
 public class SQLVarRef extends VarRef {
 
     public SQLVarRef(VarRef ref) {
