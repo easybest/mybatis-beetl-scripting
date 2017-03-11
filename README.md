@@ -19,7 +19,7 @@ If you are not familiar with beetl, you can learn it from its documentation site
 <dependency>
     <groupId>com.ifrabbit</groupId>
     <artifactId>mybatis-beetl-scripting</artifactId>
-    <version>1.0.2.RELEASE</version>
+    <version>1.0.3.RELEASE</version>
 </dependency>
 ```
 
