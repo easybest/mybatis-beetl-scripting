@@ -5,7 +5,7 @@
 
     <groupId>com.ifrabbit</groupId>
     <artifactId>mybatis-beetl-scripting</artifactId>
-    <version>1.0.3.BUILD-SNAPSHOT</version>
+    <version>1.0.3.RELEASE</version>
 
     <packaging>jar</packaging>
     <name>MyBatis Beetl Scripting</name>
@@ -34,7 +34,7 @@
     </scm>
 
     <properties>
-        <beetl.version>2.7.3</beetl.version>
+        <beetl.version>2.7.12</beetl.version>
         <mybatis.version>3.4.1</mybatis.version>
 
         <source.level>1.6</source.level>
