@@ -34,7 +34,7 @@
     </scm>
 
     <properties>
-        <beetl.version>2.7.12</beetl.version>
+        <beetl.version>3.15.13.RELEASE</beetl.version>
         <mybatis.version>3.5.6</mybatis.version>
 
         <source.level>1.6</source.level>
